@@ -7,6 +7,7 @@ public class TestCircle3 {
 	public static void main(String[] args) {
 			
 //Initializing the an Array of Circle3		
+//Here the value of each refernce variable is null
 Circle3[] circleArray;
 		
 //Calling method createArray to initialize the objects of Array circleArray
