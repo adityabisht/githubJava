@@ -1,20 +1,18 @@
 package GitDemo;
-
+import java.util.*;
 public class Arrays {
+	
+	
+	
 	
 	public static void main(String args []){
 		
 		//int array1 [] = new int[5];
 		int array1 [] = {2,4,1,5,2,5,5};
 	
-		//Print the array
 		
-		for(int i =0;i<array1.length;i++)
-		{
-			System.out.print(array1[i]+" "+"");
-		}
-		
-		System.out.println();
+		//Printing the Original Array
+		printArray(array1);
 		
 		// Find the largest Number
 		
@@ -67,6 +65,7 @@ int indexOfMax=0;
 		System.out.println();
 		// Shifting one element of the array to left and first element should come in the last.
 		
+		/*
 		int temp = array1[0];
 		
 		
@@ -79,13 +78,75 @@ int indexOfMax=0;
 		array1[array1.length-1]= temp;
 		System.out.println(temp);
 		
-		//System.out.println(array1);
+		*/
+		
+	//
+		
+		System.out.println("Reversing the array using an additonal Array");
+		
+		
+		
+		//Printing the Reverse of An Array With Using an Additional Array 
+		printArray(reverseArrayWithAdditionalArray(array1));
+		
+		// Printing the Reverse of an Array With out using the an Additional Array.
+		reverseArrayWithoutAdditionalArray(array1);
+		
 	}//End of main method
 
+/*
+ * Method to Reverse an Array with using an Additioanl Array
+ * 	
+ */
+public static  int[] reverseArrayWithAdditionalArray(int array2[])
+{
+ int [] temp = new int[array2.length];
+ 
+ for(int i=0;i<array2.length;i++)
+ {
+	 
 	
+	  temp[i]=array2[array2.length-i-1];
+	  
+ }
 	
+	return temp;
+}
+
+
+/*
+ * Method to Reverse an Array Without using the Additional Array
+ * 
+ * 
+ * */
+
+public static void reverseArrayWithoutAdditionalArray(int array2[])
+{
+ int temp;
+	for (int i=0;i<array2.length/2;i++)
+	{
+		
+		temp=array2[i];
+		array2[i]=array2[array2.length-i-1];
+		array2[array2.length-i-1]=temp;
+		
+	}
+
+System.out.println("Printing the reverse of an array without using an additioanl array");
+	printArray(array2);
+}
+
+
+
 	
-	
+public static void printArray(int array3[])
+{
+	for(int i =0;i<array3.length;i++)
+	{
+		System.out.print(array3[i]+" "+"");
+	}
+	System.out.println();
+}
 	
 	
 	
