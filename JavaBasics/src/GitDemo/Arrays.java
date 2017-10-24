@@ -92,6 +92,10 @@ int indexOfMax=0;
 		// Printing the Reverse of an Array With out using the an Additional Array.
 		reverseArrayWithoutAdditionalArray(array1);
 		
+		
+		//Method to shift the Array elements to LEFT by 1 position.
+		System.out.println("Shifting the array elements by 1 ");
+		shiftLeft(array1);
 	}//End of main method
 
 /*
@@ -136,6 +140,24 @@ System.out.println("Printing the reverse of an array without using an additioanl
 	printArray(array2);
 }
 
+
+public static void shiftLeft(int array2[]){
+//Shifting one element of the array to left and first element should come in the last.
+
+	int temp = array2[0];
+
+for(int i =1;i<array2.length;i++)
+			{
+				array2[i-1]=array2[i];
+				System.out.print(array2[i]+"\t");
+			}
+			
+			array2[array2.length-1]= temp;
+			System.out.println(temp);
+			
+			
+	
+}
 
 
 	
