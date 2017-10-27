@@ -25,7 +25,7 @@ for(int j=0;j<n;j++){
 						array2[i-1]=array2[i];
 						System.out.print(array2[i]+"\t");
 					}
-					
+				
 					array2[array2.length-1]= temp;
 					System.out.println(temp);
 			}
