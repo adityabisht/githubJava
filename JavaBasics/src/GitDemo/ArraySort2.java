@@ -1,25 +1,14 @@
 package GitDemo;
 
 public class ArraySort2 {
-
-	
-	public static void main(String args [])
-	
-	{
-		
-		int [] arrayMerge = {2,4,1,6,8,5,3};
-		MergeSort(arrayMerge);
-		
-	}//End of Main Method
-	
-	public static void MergeSort(int [] array)
+	public static int [] MergeSort(int [] array)
 	{
 		
 		int arrayLen = array.length;
 
 		if(arrayLen <=1 )
 		{
-			return;
+			return array;
 			
 		}//End of IF
 		
@@ -31,34 +20,34 @@ public class ArraySort2 {
 		/*Filling the values in rightArray
 		 * */
 		
-		for(int i=0;i<mid;i++)
+		for(int i=0;i<leftArray.length;i++)
 		{
 			leftArray[i] = array[i];
 			
 		}
 		
-		MergeSort(leftArray);
+	
 		
-		//printArray(leftArray);
+	
 
 		/*Filling the values in leftArray
 		 * */
 		
-		for(int i=mid;i<array.length;i++)
+		for(int i=0;i<rightArray.length;i++)
 		{
-			rightArray[i-mid] = array[i];
+			rightArray[i] = array[i+array.length/2];
 			
 		}
 		
 		//printArray(rightArray);
 		
 		
-		MergeSort(rightArray);
+		return Merge(MergeSort(leftArray),MergeSort(rightArray));
 		
-		int [] result = Merge(leftArray,rightArray);
-		printArray(result);
+		
 		
 	}//End of MergeSort Method
+	
 	
 	public static int [] Merge(int [] array1, int [] array2)
 	{
@@ -66,11 +55,12 @@ public class ArraySort2 {
 		
 		int i=0;
 		int j =0;
-		int k =0;
+		int k=0;
+		
 		
 		while(i<array1.length&& j<array2.length)
 		{
-			if(array1[i]<array2[i])
+			if(array1[i]<array2[j])
 			{
 				temp[k++]=array1[i++];
 				
@@ -91,15 +81,20 @@ public class ArraySort2 {
 		
 		while(j<array2.length)
 		{
-			temp[k++]=array1[j++];
+			temp[k++]=array2[j++];
 			
 			
 		}//End of 2nd While
 		
 		
+		
+		
+		
 		return temp;
 		
 	}//End of Merge
+	
+
 	
 	public static void printArray(int [] arr)
 	{
@@ -110,5 +105,19 @@ public class ArraySort2 {
 		}//End of for loop
 		System.out.println();
 	}//End of method
+	
+	public static void main(String args [])
+	
+	{
+		
+		int [] arrayMerge = {2,4,-11,6,8,-5,3,9,11,-10,3};
+	
+	
+	int [] result = MergeSort(arrayMerge);
+	
+	printArray(result);
+		
+	}//End of Main Method
+	
 	
 }//End of Class
